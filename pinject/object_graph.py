@@ -231,7 +231,8 @@ class ObjectGraph(object):
         Raises:
           Error: an instance of cls is not providable
         """
-        _verify_type(cls, types.TypeType, 'cls')
+        #TODO: Check ABCmeta
+        # _verify_type(cls, types.TypeType, 'cls')
         if not self._is_injectable_fn(cls):
             provide_loc = locations.get_back_frame_loc()
             raise errors.NonExplicitlyBoundClassError(provide_loc, cls)
